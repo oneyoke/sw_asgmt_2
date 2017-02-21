@@ -2,10 +2,10 @@ import unittest
 import piglatin as pl
 
 class TestParseCommandLine(unittest.TestCase):
-   
+
     def test_noinput(self):
-       self.assertEqual(pl.parseCommandLine([],''))
-       self.assertEqual(pl.parseCommandLine(['filename'],''))
+       self.assertEqual(pl.parseCommandLine([]),'')
+       self.assertEqual(pl.parseCommandLine(['filename']),'')
 """
     def test_upper(self):
         self.assertEqual('foo'.upper(), 'FOO')
