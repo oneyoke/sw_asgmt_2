@@ -2,14 +2,18 @@ import unittest
 import piglatin as pl
 
 class TestParseCommandLine(unittest.TestCase):
-
+      
+    #Test in empty input returns nothing.
     def test_noinput(self):
        self.assertEqual(pl.parseCommandLine([]),'')
        self.assertEqual(pl.parseCommandLine(['filename']),'')
-"""
-    def test_upper(self):
-        self.assertEqual('foo'.upper(), 'FOO')
 
+    #Test if an inputstring is returned unchanged.
+    def test_returnInputString(self):
+        self.assertEqual(pl.parseCommandLine(['', 'inputString']),'inputString')
+        
+   
+"""
     def test_isupper(self):
         self.assertTrue('FOO'.isupper())
         self.assertFalse('Foo'.isupper())
