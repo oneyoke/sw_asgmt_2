@@ -9,8 +9,14 @@ def isVowel(ch):
    else:
       return False
 
+
 def translateToPig(wordInEnglish):
     #Receive a single word, return the piglatin translation.
+    
+    
+    cap=wordInEnglish.istitle()
+    print cap
+       
     
     if not isVowel(wordInEnglish[0]):
        #word starts with a consonant, find index for first vowel
@@ -18,6 +24,9 @@ def translateToPig(wordInEnglish):
 
        #move consonants in front of vowel to end and add "ay" at the end
        wordInPig=wordInEnglish[i:]+wordInEnglish[0:i]+'ay'
+       
+       if cap:
+          wordInPig=wordInPig.capitalize()
        
        return wordInPig
     else:
