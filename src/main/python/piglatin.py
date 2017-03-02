@@ -1,10 +1,29 @@
 import sys
 
 def parseCommandLine(argv):
-    return argv[1] if len(argv) > 1 else ""
+       return argv[1] if len(argv) > 1 else ""
 
+def isVowel(ch):
+   if "aeiou".count(ch) >= 1:
+      return True
+   else:
+      return False
+
+def translateToPig(wordInEnglish):
+    #Receive a single word, return the piglatin translation.
+    
+    if not isVowel(wordInEnglish[0]):
+       #word starts with a consonant, find index for first vowel
+       i=[isVowel(ch) for ch in wordInEnglish].index(True)
+
+       #move consonants in front of vowel to end and add "ay" at the end
+       wordInPig=wordInEnglish[i:]+wordInEnglish[0:i]+'ay'
+       
+       return wordInPig
+    else:
+       return ""
 
 if __name__ == "__main__":
-    latin = parseCommandLine(sys.argv)
-    print(latin)
-    print("igpay atinlay")
+    sentence = parseCommandLine(sys.argv)
+    print(translateToPig(sentence))
+
