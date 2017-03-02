@@ -19,6 +19,12 @@ class TestParseCommandLine(unittest.TestCase):
     def test_capWordTranslate(self):
         self.assertEqual(pl.translateToPig('Victor'),'Ictorvay')
 
+    def test_oneWordStartsVowelTranslate(self):
+        self.assertEqual(pl.translateToPig('eat'),'eatway')
+        self.assertEqual(pl.translateToPig('omelet'),'omeletway')
+        self.assertEqual(pl.translateToPig('are'),'areway')
+        self.assertEqual(pl.translateToPig('egg'),'eggway')
+
 """
     def test_isupper(self):
         self.assertTrue('FOO'.isupper())
