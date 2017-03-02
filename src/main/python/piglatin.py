@@ -1,6 +1,7 @@
 import sys
 
 def parseCommandLine(argv):
+    print 'Inside parser'
     return argv[1] if len(argv) > 1 else ""
 
 
