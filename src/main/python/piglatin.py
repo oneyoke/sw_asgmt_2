@@ -14,6 +14,7 @@ def translateToPig(wordInEnglish):
     #Receive a single word, return the piglatin translation.
     
     cap=wordInEnglish.istitle()       
+    wordInEnglish=wordInEnglish
     
     if not isVowel(wordInEnglish[0]):
        #word starts with a consonant, find index for first vowel
