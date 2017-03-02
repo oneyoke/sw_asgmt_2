@@ -2,7 +2,7 @@ import unittest
 import piglatin as pl
 
 class TestParseCommandLine(unittest.TestCase):
-      
+
     #Test in empty input returns nothing.
     def test_noinput(self):
        self.assertEqual(pl.parseCommandLine([]),'')
@@ -11,8 +11,10 @@ class TestParseCommandLine(unittest.TestCase):
     #Test if an inputstring is returned unchanged.
     def test_returnInputString(self):
         self.assertEqual(pl.parseCommandLine(['', 'inputString']),'inputString')
-        
-   
+
+    def test_oneWordTranslate(self):
+        self.assertEqual(pl.translateToPig('pig'),'igpay')
+
 """
     def test_isupper(self):
         self.assertTrue('FOO'.isupper())
