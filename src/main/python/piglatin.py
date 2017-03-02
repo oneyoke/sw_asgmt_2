@@ -12,10 +12,10 @@ def isVowel(ch):
 
 def translateToPig(wordInEnglish):
     #Receive a single word, return the piglatin translation.
-
     cap=wordInEnglish.istitle()
     wordInEnglish = wordInEnglish.lower()      
-
+    #cap=wordInEnglish.istitle()       
+    #wordInEnglish=wordInEnglish
     if not isVowel(wordInEnglish[0]):
        #word starts with a consonant, find index for first vowel
        i=[isVowel(ch) for ch in wordInEnglish].index(True)
