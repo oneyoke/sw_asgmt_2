@@ -11,14 +11,18 @@ def isVowel(ch):
 
 def translateToPig(wordInEnglish):
     #Receive a single word, return the piglatin translation.
-    
+
     if not isVowel(wordInEnglish[0]):
        #word starts with a consonant, find index for first vowel
        i=[isVowel(ch) for ch in wordInEnglish].index(True)
 
        #move consonants in front of vowel to end and add "ay" at the end
        wordInPig=wordInEnglish[i:]+wordInEnglish[0:i]+'ay'
-       
+
+       return wordInPig
+    #word starst with a vowel
+    if isVowel(wordInEnglish[0]):
+       wordInPig = wordInEnglish+'way'
        return wordInPig
     else:
        return ""
@@ -26,4 +30,3 @@ def translateToPig(wordInEnglish):
 if __name__ == "__main__":
     sentence = parseCommandLine(sys.argv)
     print(translateToPig(sentence))
-
