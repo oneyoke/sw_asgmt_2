@@ -27,6 +27,11 @@ class TestParseCommandLine(unittest.TestCase):
         self.assertEqual(pl.translateToPig('Egg'),'Eggway')
         self.assertEqual(pl.translateToPig('Erik'),'Erikway')
 
+    def test_multipleWordsTranslate(self):
+        self.assertEqual(pl.translateToPig('eat omelet'),'eatway omeletway')
+        self.assertEqual(pl.translateToPig('Eat egg\neat pig'),'Eatway eggway\neatway igpay')
+
+
 """
     def test_isupper(self):
         self.assertTrue('FOO'.isupper())

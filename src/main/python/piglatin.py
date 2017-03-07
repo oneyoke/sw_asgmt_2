@@ -9,8 +9,31 @@ def isVowel(ch):
    else:
       return False
 
+def translateToPig(sentenceInEnglish):
+    #Recieve a sentence, return the piglatin translation.
+    sentenceInPig = ""
 
-def translateToPig(wordInEnglish):
+    #Split into seperate lines
+    linesInEnglish = sentenceInEnglish.splitlines()
+    for linenumber, line in enumerate(linesInEnglish):
+
+      # Add newline
+      if linenumber > 0:
+        sentenceInPig=sentenceInPig+"\n"
+
+      #Split on whitespace
+      wordsInEnglish = line.split()
+      for wordnumber, word in enumerate(wordsInEnglish):
+
+        #Add whitespace
+        if wordnumber > 0:
+          sentenceInPig=sentenceInPig+" "
+
+        sentenceInPig=sentenceInPig+translateWordToPig(word)
+
+    return sentenceInPig
+
+def translateWordToPig(wordInEnglish):
     #Receive a single word, return the piglatin translation.
     cap=wordInEnglish.istitle()
     wordInEnglish = wordInEnglish.lower()      
