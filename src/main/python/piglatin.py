@@ -36,8 +36,8 @@ def translateToPig(sentenceInEnglish):
 def translateWordToPig(wordInEnglish):
     #Receive a single word, return the piglatin translation.
     cap=wordInEnglish.istitle()
-    wordInEnglish = wordInEnglish.lower()      
-    #cap=wordInEnglish.istitle()       
+    wordInEnglish = wordInEnglish.lower()
+    #cap=wordInEnglish.istitle()
     #wordInEnglish=wordInEnglish
     if not isVowel(wordInEnglish[0]):
        #word starts with a consonant, find index for first vowel
@@ -62,4 +62,7 @@ def translateWordToPig(wordInEnglish):
 
 if __name__ == "__main__":
     sentence = parseCommandLine(sys.argv)
-    print(translateToPig(sentence))
+    try:
+        print(translateToPig(sentence))
+    except ValueError:
+        print("A word is not a word without its vowels...")
