@@ -45,8 +45,11 @@ def translateWordToPig(wordInEnglish):
     #wordInEnglish=wordInEnglish
     if not isVowel(wordInEnglish[0]):
        #word starts with a consonant, find index for first vowel
-       i=[isVowel(ch) for ch in wordInEnglish].index(True)
-
+       try:
+          i=[isVowel(ch) for ch in wordInEnglish].index(True)
+       except ValueError:
+          sys.exit('Not so clever to have words without vowels!') 
+          
        #move consonants in front of vowel to end and add "ay" at the end
        wordInPig=wordInEnglish[i:]+wordInEnglish[0:i]+'ay'
 

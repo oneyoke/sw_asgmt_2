@@ -14,7 +14,11 @@ class TestParseCommandLine(unittest.TestCase):
 
     def test_oneWordTranslate(self):
         self.assertEqual(pl.translateToPig('pig'),'igpay')
-
+        
+    def test_onlyConsonantsTranslate(self):
+        with self.assertRaises(SystemExit):
+           pl.translateWordToPig('bbb')
+        
     #Test if Capitalized words remain capitalized efter translation.
     def test_capWordTranslate(self):
         self.assertEqual(pl.translateToPig('Victor'),'Ictorvay')
