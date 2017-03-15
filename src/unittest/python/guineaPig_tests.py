@@ -31,6 +31,9 @@ class TestParseCommandLine(unittest.TestCase):
         self.assertEqual(pl.translateToPig('eat omelet'),'eatway omeletway')
         self.assertEqual(pl.translateToPig('Eat egg\neat pig'),'Eatway eggway\neatway igpay')
 
+    def test_punctuation(self):
+        self.assertEqual(pl.translateToPig('Test cases: one, two, three.'),'Esttay asescay: oneway, otway, eethray.')
+        self.assertEqual(pl.translateToPig('Hello! How is it going?'),'Ellohay! Owhay isway itway oinggay?')
 
 """
     def test_isupper(self):

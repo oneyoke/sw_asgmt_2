@@ -29,15 +29,19 @@ def translateToPig(sentenceInEnglish):
         if wordnumber > 0:
           sentenceInPig=sentenceInPig+" "
 
-        sentenceInPig=sentenceInPig+translateWordToPig(word)
+        if word[-1] in "!?:.,":
+            wordInPig = translateWordToPig(word[:-1])+word[-1]
+        else:
+            wordInPig = translateWordToPig(word)
+        sentenceInPig=sentenceInPig+wordInPig
 
     return sentenceInPig
 
 def translateWordToPig(wordInEnglish):
     #Receive a single word, return the piglatin translation.
     cap=wordInEnglish.istitle()
-    wordInEnglish = wordInEnglish.lower()      
-    #cap=wordInEnglish.istitle()       
+    wordInEnglish = wordInEnglish.lower()
+    #cap=wordInEnglish.istitle()
     #wordInEnglish=wordInEnglish
     if not isVowel(wordInEnglish[0]):
        #word starts with a consonant, find index for first vowel
