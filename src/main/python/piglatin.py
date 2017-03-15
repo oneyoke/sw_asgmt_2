@@ -1,4 +1,5 @@
 import sys
+import string
 
 def parseCommandLine(argv):
        return argv[1] if len(argv) > 1 else ""
@@ -29,7 +30,7 @@ def translateToPig(sentenceInEnglish):
         if wordnumber > 0:
           sentenceInPig=sentenceInPig+" "
 
-        if word[-1] in "!?:.,":
+        if word[-1] in string.punctuation:
             wordInPig = translateWordToPig(word[:-1])+word[-1]
         else:
             wordInPig = translateWordToPig(word)
@@ -48,8 +49,8 @@ def translateWordToPig(wordInEnglish):
        try:
           i=[isVowel(ch) for ch in wordInEnglish].index(True)
        except ValueError:
-          sys.exit('Not so clever to have words without vowels!') 
-          
+          sys.exit('Not so clever to have words without vowels!')
+
        #move consonants in front of vowel to end and add "ay" at the end
        wordInPig=wordInEnglish[i:]+wordInEnglish[0:i]+'ay'
 
