@@ -1,8 +1,24 @@
 import sys
 import string
+import os
 
 def parseCommandLine(argv):
-       return argv[1] if len(argv) > 1 else ""
+        input_string = ""
+        if len(argv) > 1:
+            if os.path.isfile(argv[1]):
+                with open(argv[1],'r') as input_file:
+                    input_string = input_file.read()
+            else:
+                input_string = argv[1]
+
+        return input_string
+
+def printSentence(sentence,argv):
+    if len(argv) > 2:
+        with open(argv[2],'w') as output_file:
+            output_file.write(sentence)
+    else:
+        print(sentence)
 
 def isVowel(ch):
    if "aeiou".count(ch) >= 1:
@@ -70,4 +86,4 @@ def translateWordToPig(wordInEnglish):
 
 if __name__ == "__main__":
     sentence = parseCommandLine(sys.argv)
-    print(translateToPig(sentence))
+    printSentence(translateToPig(sentence),sys.argv)

@@ -32,5 +32,9 @@ pyb
 
 # Run
 ```
+# Simple example
 python target/dist/sw_asgmt_2-1.0.dev0/piglatin.py piggy
+
+# General example
+python target/dist/sw_asgmt_2-1.0.dev0/piglatin.py <input: string or filename> <optional output: filename>
 ```
