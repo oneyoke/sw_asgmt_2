@@ -60,21 +60,10 @@ def translateWordToPig(wordInEnglish):
     wordInEnglish = wordInEnglish.lower()
     #cap=wordInEnglish.istitle()
     #wordInEnglish=wordInEnglish
-    
     if not isVowel(wordInEnglish[0]):
-       
-       #Handle the bloody y's
-       yAsVowelPos = 0
-       if ('y' in wordInEnglish):
-           i=wordInEnglish.index('y')
-           if not isVowel(wordInEnglish[i-1]):
-              #y should be treated as a vowel.
-              yAsVowelPos = i 
-       
        #word starts with a consonant, find index for first vowel
-       try:    
-          i=[isVowel(ch) or (yAsVowelPos>0 and idx == yAsVowelPos) for idx, ch in enumerate(wordInEnglish)].index(True)
-          
+       try:
+          i=[isVowel(ch) for ch in wordInEnglish].index(True)
        except ValueError:
           sys.exit('Not so clever to have words without vowels!')
 
