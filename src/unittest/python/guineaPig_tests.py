@@ -14,7 +14,11 @@ class TestParseCommandLine(unittest.TestCase):
 
     def test_oneWordTranslate(self):
         self.assertEqual(pl.translateToPig('pig'),'igpay')
-
+        
+    def test_onlyConsonantsTranslate(self):
+        with self.assertRaises(SystemExit):
+           pl.translateWordToPig('bbb')
+        
     #Test if Capitalized words remain capitalized efter translation.
     def test_capWordTranslate(self):
         self.assertEqual(pl.translateToPig('Victor'),'Ictorvay')
@@ -31,6 +35,9 @@ class TestParseCommandLine(unittest.TestCase):
         self.assertEqual(pl.translateToPig('eat omelet'),'eatway omeletway')
         self.assertEqual(pl.translateToPig('Eat egg\neat pig'),'Eatway eggway\neatway igpay')
 
+    def test_punctuation(self):
+        self.assertEqual(pl.translateToPig('Test cases: one, two, three.'),'Esttay asescay: oneway, otway, eethray.')
+        self.assertEqual(pl.translateToPig('Hello! How is it going?'),'Ellohay! Owhay isway itway oinggay?')
 
 """
     def test_isupper(self):
